@@ -1,7 +1,6 @@
 import { Route, Routes,useNavigate, json } from 'react-router-dom';
 import Header from './Header';
 import { useEffect, useState } from 'react';
-import { get } from 'colornames';
 import Playlist from './Playlist';
 import Tracks from './tracks';
 
@@ -15,12 +14,13 @@ function App() {
 		const storedAlbums = localStorage.getItem('albums');
 		return storedAlbums ? JSON.parse(storedAlbums) : [];
 	});
+	
 	const [isLoading, setIsLoading] = useState(true);
 	const [currentTrack, setCurrentTrack] = useState(null);
 	const [audio, setAudio] = useState(null);
 	const [recommended,setRecommended]=useState([]);
 	const [playlist,setPlaylist]=useState(() => {
-		const storedPlaylist = localStorage.getItem('playlist');
+		const storedPlaylist = localStorage.getItem('playlist').reverse;
 		return storedPlaylist? JSON.parse(storedPlaylist):[];
 	});
 	
@@ -139,12 +139,13 @@ function App() {
 	};
 	
 	const set_playlist = (track) => {
-		if (playlist.some(item => item.id === track.id)  ) {
-			delete_from_playlist(track);
+		if (playlist.some(item => item.id === track.id)) {
+		  delete_from_playlist(track);
 		} else {
-			setPlaylist([...playlist, track]);
+		  // Add new item to the beginning of the array
+		  setPlaylist([track, ...playlist]);
 		}
-	};
+	  }
 
 	const delete_from_playlist=(track)=>{
 		const updatedList=playlist.filter((song)=>song.id!==track.id);
@@ -161,7 +162,6 @@ function App() {
 			search_album={search_album}
 			playlist={playlist}
 			/>
-			
 			<Routes>
 				<Route path='/' element={<Tracks
 					albums={albums}

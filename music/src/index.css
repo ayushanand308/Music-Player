@@ -18,8 +18,14 @@ body {
 }
 
 .header {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  padding: 1.2em;
+  background-color: white;
+  border: 5px solid black;
+  box-shadow: 10px 5px rgb(25, 233, 49);
+  cursor: pointer;
+  font-family: 'Plaster', cursive;
+  color: rgba(0,0,0,.75);
+  transition: all .2s linear;
 }
 
 #search {
@@ -55,7 +61,7 @@ body {
 }
 
 .card button:hover {
-  background-color: #17a048;
+  background-color: #3deb8e;
 }
 
 * {
@@ -82,6 +88,25 @@ body {
   z-index: 1;
 }
 
+
+@media screen and (max-width: 650px) {
+  .header {
+    flex-direction: column;
+    gap: 0.75rem;
+    
+  }
+  #search{
+    margin-left: 15%;
+    margin-top: 3%;
+  }
+}
+
+
+.header a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+}
+
 .header h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -89,8 +114,9 @@ body {
   letter-spacing: 0.1rem;
 }
 
+
 #search {
-  width: 20rem;
+  width: 75%;
   padding: 0.5rem;
   border: none;
   border-radius: 4px;
@@ -108,21 +134,21 @@ body {
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
-  border-radius: 4px;
-  background-color: #cef6dc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
+  padding: 1.2em;
+  background-color: white;
+  border: 5px solid black;
+  box-shadow: 10px 5px rgb(25, 233, 49);
+  cursor: pointer;
+  font-family: 'Plaster', cursive;
+  color: rgba(0,0,0,.75);
+  transition: all .2s linear;
 
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: black;
+  padding: 1em;
+  box-shadow: 10px 5px rgba(170, 255, 0,1);
 }
 
 .card img {
@@ -148,22 +174,20 @@ body {
 }
 
 .card button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  color: #FFFFFF;
-  background-color: #1DB954;
-  border: none;
-  border-radius: 4px;
+  padding: 1.2em;
+  background-color: white;
+  border: 5px solid black;
+  box-shadow: 10px 5px rgb(25, 233, 49);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  font-family: 'Plaster', cursive;
+  color: rgba(0,0,0,.75);
+  transition: all .2s linear;
 }
 
 .card button:hover {
-  background-color: #17a048;
+  color: black;
+  padding: 1em;
+  box-shadow: 10px 5px rgba(170, 255, 0,1);
 }
 
 .button{
